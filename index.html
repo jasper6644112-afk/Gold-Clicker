@@ -1,1 +1,41 @@
-hi
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Business Empire Web</title><link rel="stylesheet" href="style.css">
+</head><body><header class="topbar">
+    <h1>🏢 Business Empire Web</h1><div class="money-box">
+    Cash: $<span id="money">1000</span>
+</div>
+
+</header><main><section class="stats"><div class="stat-card">
+<h3>Net Worth</h3>
+<p id="netWorth">$1000</p>
+</div><div class="stat-card">
+<h3>Income / Sec</h3>
+<p id="incomePerSec">$0</p>
+</div><div class="stat-card">
+<h3>Businesses</h3>
+<p id="businessCount">0</p>
+</div></section><section class="business-section"><h2>Available Businesses</h2><div class="business-grid"><div class="business-card">
+<h3>🍋 Lemonade Stand</h3>
+<p>Cost: $500</p>
+<p>Income: $5/sec</p>
+<button onclick="buyBusiness('lemonade')">
+Buy
+</button>
+</div><div class="business-card">
+<h3>🏪 Convenience Store</h3>
+<p>Cost: $5,000</p>
+<p>Income: $50/sec</p>
+<button onclick="buyBusiness('store')">
+Buy
+</button>
+</div><div class="business-card">
+<h3>🍔 Restaurant</h3>
+<p>Cost: $25,000</p>
+<p>Income: $250/sec</p>
+<button onclick="buyBusiness('restaurant')">
+Buy
+</button>
+</div></div></section><section class="owned-section"><h2>Your Businesses</h2><div id="ownedBusinesses"><p>No businesses yet.</p></div></section></main><script src="data.js"></script><script src="save.js"></script><script src="script.js"></script></body>
+</html>
