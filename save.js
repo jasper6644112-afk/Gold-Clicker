@@ -1,32 +1,24 @@
-const BUSINESS_DATA = {
+function saveGame() {
 
-lemonade: {
-name: "🍋 Lemonade Stand",
-cost: 500,
-income: 5
-},
+localStorage.setItem(
+"businessEmpireSave",
+JSON.stringify(game)
+);
 
-store: {
-name: "🏪 Convenience Store",
-cost: 5000,
-income: 50
-},
-
-restaurant: {
-name: "🍔 Restaurant",
-cost: 25000,
-income: 250
 }
 
-};
+function loadGame() {
 
-let game = {
-money: 1000,
-incomePerSec: 0,
+const save = localStorage.getItem(
+"businessEmpireSave"
+);
 
-businesses: {
-lemonade: 0,
-store: 0,
-restaurant: 0
+if(save){
+
+game = JSON.parse(save);
+
 }
-};
+
+}
+
+setInterval(saveGame, 5000);
