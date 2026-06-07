@@ -1,73 +1,42 @@
-const businesses = [
-
-{
-id:"lemonade",
-name:"🍋 Lemonade Stand",
-cost:500,
-income:5
-},
-
-{
-id:"store",
-name:"🏪 Convenience Store",
-cost:5000,
-income:50
-},
-
-{
-id:"restaurant",
-name:"🍔 Restaurant",
-cost:25000,
-income:250
-},
-
-{
-id:"hotel",
-name:"🏨 Hotel",
-cost:1000000,
-income:10000
-},
-
-{
-id:"airline",
-name:"✈️ Airline",
-cost:50000000,
-income:500000
-}
-
-];
-
 function buyBusiness(id){
 
 const business =
-businesses.find(
-b => b.id === id
-);
+BUSINESS_DATA[id];
 
 if(!business) return;
 
 if(game.cash < business.cost){
 
-alert("Not enough money");
+alert("Not enough money!");
 
 return;
+
 }
 
 game.cash -= business.cost;
 
-if(!game.businesses[id]){
+game.businesses[id]++;
 
-game.businesses[id] = {
-owned:0
-};
+recalculateIncome();
+
+updateDashboard();
+
+saveGame();
 
 }
 
-game.businesses[id].owned++;
+function recalculateIncome(){
 
-game.incomePerSecond +=
-business.income;
+let total = 0;
 
-updateDashboard();
+for(const id in game.businesses){
+
+total +=
+game.businesses[id] *
+BUSINESS_DATA[id].income;
+
+}
+
+game.incomePerSecond = total;
 
 }
