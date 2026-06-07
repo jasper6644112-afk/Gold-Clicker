@@ -1,124 +1,100 @@
-loadGame();
+function updateDashboard(){
 
-const moneyEl = document.getElementById("money");
-const incomeEl = document.getElementById("incomePerSec");
-const netWorthEl = document.getElementById("netWorth");
-const businessCountEl = document.getElementById("businessCount");
-const ownedEl = document.getElementById("ownedBusinesses");
+const cash =
+document.getElementById("cash");
 
-function updateUI() {
+const netWorth =
+document.getElementById("netWorth");
 
-moneyEl.textContent =
-Math.floor(game.money).toLocaleString();
+const income =
+document.getElementById("income");
 
-incomeEl.textContent =
-"$" + game.incomePerSec.toLocaleString();
+const businessCount =
+document.getElementById("businessCount");
+
+const employeeCount =
+document.getElementById("employeeCount");
+
+const propertyCount =
+document.getElementById("propertyCount");
+
+if(cash)
+cash.textContent =
+Math.floor(game.cash).toLocaleString();
+
+if(netWorth)
+netWorth.textContent =
+Math.floor(game.netWorth).toLocaleString();
+
+if(income)
+income.textContent =
+Math.floor(
+game.incomePerSecond
+).toLocaleString();
 
 let totalBusinesses = 0;
 
 for(const key in game.businesses){
-totalBusinesses += game.businesses[key];
+
+totalBusinesses +=
+game.businesses[key].owned || 0;
+
 }
 
-businessCountEl.textContent = totalBusinesses;
+if(businessCount)
+businessCount.textContent =
+totalBusinesses;
 
-let netWorth = game.money;
+if(employeeCount)
+employeeCount.textContent =
+Object.keys(
+game.employees
+).length;
+
+if(propertyCount)
+propertyCount.textContent =
+Object.keys(
+game.realEstate
+).length;
+
+}
+
+function calculateNetWorth(){
+
+game.netWorth =
+game.cash;
 
 for(const key in game.businesses){
 
-netWorth +=
-game.businesses[key] *
-BUSINESS_DATA[key].cost;
-
-}
-
-netWorthEl.textContent =
-"$" + Math.floor(netWorth).toLocaleString();
-
-renderBusinesses();
-}
-
-function renderBusinesses(){
-
-ownedEl.innerHTML = "";
-
-let hasBusiness = false;
-
-for(const key in game.businesses){
-
-if(game.businesses[key] > 0){
-
-hasBusiness = true;
-
-const p =
-document.createElement("p");
-
-p.textContent =
-BUSINESS_DATA[key].name +
-" x" +
-game.businesses[key];
-
-ownedEl.appendChild(p);
-
-}
-
-}
-
-if(!hasBusiness){
-
-ownedEl.innerHTML =
-"<p>No businesses yet.</p>";
-
-}
-
-}
-
-function recalculateIncome(){
-
-let income = 0;
-
-for(const key in game.businesses){
-
-income +=
-game.businesses[key] *
-BUSINESS_DATA[key].income;
-
-}
-
-game.incomePerSec = income;
-}
-
-function buyBusiness(type){
+const owned =
+game.businesses[key].owned || 0;
 
 const business =
-BUSINESS_DATA[type];
+businesses.find(
+b => b.id === key
+);
 
-if(game.money < business.cost){
+if(business){
 
-alert("Not enough money!");
+game.netWorth +=
+owned *
+business.cost;
 
-return;
 }
 
-game.money -= business.cost;
-
-game.businesses[type]++;
-
-recalculateIncome();
-
-updateUI();
-
-saveGame();
+}
 
 }
 
 setInterval(() => {
 
-game.money += game.incomePerSec;
+game.cash +=
+game.incomePerSecond;
 
-updateUI();
+calculateNetWorth();
 
-}, 1000);
+updateDashboard();
 
-recalculateIncome();
-updateUI();
+},1000);
+
+updateDashboard();
