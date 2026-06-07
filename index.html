@@ -1,19 +1,22 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Business Empire</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body><header class="topbar"><div class="logo">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Business Empire Web</title><link rel="stylesheet" href="style.css">
+</head><body><header class="topbar"><div class="logo">
 🏢 Business Empire
-</div><div class="player-info"><div class="money-card">
-💵 $<span id="cash">1000</span>
-</div><div class="money-card">
-📈 $<span id="netWorth">1000</span>
-</div><div class="money-card">
-⚡ $<span id="income">0</span>/s
-</div></div></header><div class="container"><aside class="sidebar"><button class="menu-btn active">
+</div><div class="top-stats"><div class="top-card">
+💵 Cash
+<h3 id="cash">$1,000</h3>
+</div><div class="top-card">
+📈 Net Worth
+<h3 id="netWorth">$1,000</h3>
+</div><div class="top-card">
+⚡ Income/s
+<h3 id="income">$0</h3>
+</div><div class="top-card">
+⭐ Level
+<h3 id="level">1</h3>
+</div></div></header><div class="layout"><aside class="sidebar"><button class="menu-btn active">
 🏠 Dashboard
 </button><button class="menu-btn">
 🏢 Businesses
@@ -22,29 +25,39 @@
 </button><button class="menu-btn">
 🏠 Real Estate
 </button><button class="menu-btn">
-📈 Stocks
-</button><button class="menu-btn">
 🏦 Bank
+</button><button class="menu-btn">
+📈 Stocks
 </button><button class="menu-btn">
 🎯 Missions
 </button><button class="menu-btn">
 🏆 Leaderboard
-</button></aside><main class="main-panel"><section class="welcome-card"><h1>Welcome CEO</h1><p>
-Build your empire, expand businesses,
-invest in assets and become a billionaire.
-</p></section><section class="stats-grid"><div class="stat-box">
-<h3>Level</h3>
-<p id="level">1</p>
-</div><div class="stat-box">
-<h3>Businesses</h3>
-<p id="businessCount">0</p>
-</div><div class="stat-box">
-<h3>Employees</h3>
-<p id="employeeCount">0</p>
-</div><div class="stat-box">
-<h3>Properties</h3>
-<p id="propertyCount">0</p>
-</div></section><section class="news-panel"><h2>Empire News</h2><div id="newsFeed">
-Your empire is just getting started...
-</div></section></main></div><script src="data.js"></script><script src="ui.js"></script><script src="script.js"></script></body>
+</button></aside><main class="content"><section class="hero-card"><h1>Welcome CEO</h1><p>
+Build businesses, hire employees,
+invest in property and become a billionaire.
+</p></section><section class="stats-grid"><div class="stat-card">
+<h2 id="businessCount">0</h2>
+<p>Businesses</p>
+</div><div class="stat-card">
+<h2 id="employeeCount">0</h2>
+<p>Employees</p>
+</div><div class="stat-card">
+<h2 id="propertyCount">0</h2>
+<p>Properties</p>
+</div><div class="stat-card">
+<h2 id="achievementCount">0</h2>
+<p>Achievements</p>
+</div></section><section class="business-market"><h2>Business Marketplace</h2><div class="business-grid"><div class="business-card"><h3>🍋 Lemonade Stand</h3><p>Cost: $500</p><p>Income: $5/sec</p><button onclick="buyBusiness('lemonade')">
+Buy
+</button></div><div class="business-card"><h3>🏪 Convenience Store</h3><p>Cost: $5,000</p><p>Income: $50/sec</p><button onclick="buyBusiness('store')">
+Buy
+</button></div><div class="business-card"><h3>🍔 Restaurant</h3><p>Cost: $25,000</p><p>Income: $250/sec</p><button onclick="buyBusiness('restaurant')">
+Buy
+</button></div><div class="business-card"><h3>🏨 Hotel</h3><p>Cost: $1,000,000</p><p>Income: $10,000/sec</p><button onclick="buyBusiness('hotel')">
+Buy
+</button></div><div class="business-card"><h3>✈️ Airline</h3><p>Cost: $50,000,000</p><p>Income: $500,000/sec</p><button onclick="buyBusiness('airline')">
+Buy
+</button></div></div></section><section class="news-panel"><h2>Empire News</h2><div id="newsFeed">Welcome to your business empire.
+
+</div></section></main></div><script src="data.js"></script><script src="save.js"></script><script src="businesses.js"></script><script src="ui.js"></script><script src="script.js"></script></body>
 </html>>
