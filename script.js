@@ -82,7 +82,6 @@ checkMissions();
 updateDashboard();
 
 },1000);
-
 recalculateIncome();
 
 calculateNetWorth();
