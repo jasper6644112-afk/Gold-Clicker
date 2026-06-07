@@ -1,5 +1,4 @@
-const CACHE_NAME = "business-empire-v1";
-
+const CACHE_NAME = "business-empire-v4";
 const FILES_TO_CACHE = [
   "/",
   "/index.html",
