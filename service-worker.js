@@ -4,8 +4,17 @@ const FILES_TO_CACHE = [
   "/",
   "/index.html",
   "/style.css",
+  "/manifest.json",
   "/script.js",
-  "/manifest.json"
+  "/data.js",
+  "/save.js",
+  "/businesses.js",
+  "/employees.js",
+  "/realestate.js",
+  "/stocks.js",
+  "/bank.js",
+  "/upgrades.js",
+  "/ui.js"
 ];
 
 // Install
@@ -17,7 +26,7 @@ self.addEventListener("install", event => {
   );
 });
 
-// Activate
+// Activate (cleanup old cache)
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(keys => {
