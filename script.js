@@ -73,10 +73,11 @@ game.netWorth = total;
 
 setInterval(() => {
 
-game.cash +=
-game.incomePerSecond;
+game.cash += game.incomePerSecond;
 
 calculateNetWorth();
+
+checkMissions();
 
 updateDashboard();
 
