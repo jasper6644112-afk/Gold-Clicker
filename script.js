@@ -2,55 +2,35 @@ loadGame();
 
 function updateDashboard(){
 
-document.getElementById("cash")
-.textContent =
-"$" +
-Math.floor(game.cash)
-.toLocaleString();
+document.getElementById("cash").textContent =
+"$" + Math.floor(game.cash).toLocaleString();
 
-document.getElementById("netWorth")
-.textContent =
-"$" +
-Math.floor(game.netWorth)
-.toLocaleString();
+document.getElementById("netWorth").textContent =
+"$" + Math.floor(game.netWorth).toLocaleString();
 
-document.getElementById("income")
-.textContent =
-"$" +
-Math.floor(game.incomePerSecond)
-.toLocaleString();
+document.getElementById("income").textContent =
+"$" + Math.floor(game.incomePerSecond).toLocaleString();
 
 let businessCount = 0;
 
 for(const key in game.businesses){
 
-businessCount +=
-game.businesses[key];
+businessCount += game.businesses[key];
 
 }
 
-document.getElementById(
-"businessCount"
-).textContent =
+document.getElementById("businessCount").textContent =
 businessCount;
 
-document.getElementById(
-"employeeCount"
-).textContent =
-Object.keys(
-game.employees
-).length;
+document.getElementById("employeeCount").textContent =
+Object.values(game.employees)
+.reduce((a,b)=>a+b,0);
 
-document.getElementById(
-"propertyCount"
-).textContent =
-Object.keys(
-game.realEstate
-).length;
+document.getElementById("propertyCount").textContent =
+Object.values(game.realEstate)
+.reduce((a,b)=>a+b,0);
 
-document.getElementById(
-"achievementCount"
-).textContent =
+document.getElementById("achievementCount").textContent =
 game.achievements.length;
 
 }
@@ -77,11 +57,14 @@ game.cash += game.incomePerSecond;
 
 calculateNetWorth();
 
+if(typeof checkMissions === "function"){
 checkMissions();
+}
 
 updateDashboard();
 
 },1000);
+
 recalculateIncome();
 
 calculateNetWorth();
