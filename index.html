@@ -1,41 +1,50 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Business Empire Web</title><link rel="stylesheet" href="style.css">
-</head><body><header class="topbar">
-    <h1>🏢 Business Empire Web</h1><div class="money-box">
-    Cash: $<span id="money">1000</span>
-</div>
-
-</header><main><section class="stats"><div class="stat-card">
-<h3>Net Worth</h3>
-<p id="netWorth">$1000</p>
-</div><div class="stat-card">
-<h3>Income / Sec</h3>
-<p id="incomePerSec">$0</p>
-</div><div class="stat-card">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Empire</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body><header class="topbar"><div class="logo">
+🏢 Business Empire
+</div><div class="player-info"><div class="money-card">
+💵 $<span id="cash">1000</span>
+</div><div class="money-card">
+📈 $<span id="netWorth">1000</span>
+</div><div class="money-card">
+⚡ $<span id="income">0</span>/s
+</div></div></header><div class="container"><aside class="sidebar"><button class="menu-btn active">
+🏠 Dashboard
+</button><button class="menu-btn">
+🏢 Businesses
+</button><button class="menu-btn">
+👔 Employees
+</button><button class="menu-btn">
+🏠 Real Estate
+</button><button class="menu-btn">
+📈 Stocks
+</button><button class="menu-btn">
+🏦 Bank
+</button><button class="menu-btn">
+🎯 Missions
+</button><button class="menu-btn">
+🏆 Leaderboard
+</button></aside><main class="main-panel"><section class="welcome-card"><h1>Welcome CEO</h1><p>
+Build your empire, expand businesses,
+invest in assets and become a billionaire.
+</p></section><section class="stats-grid"><div class="stat-box">
+<h3>Level</h3>
+<p id="level">1</p>
+</div><div class="stat-box">
 <h3>Businesses</h3>
 <p id="businessCount">0</p>
-</div></section><section class="business-section"><h2>Available Businesses</h2><div class="business-grid"><div class="business-card">
-<h3>🍋 Lemonade Stand</h3>
-<p>Cost: $500</p>
-<p>Income: $5/sec</p>
-<button onclick="buyBusiness('lemonade')">
-Buy
-</button>
-</div><div class="business-card">
-<h3>🏪 Convenience Store</h3>
-<p>Cost: $5,000</p>
-<p>Income: $50/sec</p>
-<button onclick="buyBusiness('store')">
-Buy
-</button>
-</div><div class="business-card">
-<h3>🍔 Restaurant</h3>
-<p>Cost: $25,000</p>
-<p>Income: $250/sec</p>
-<button onclick="buyBusiness('restaurant')">
-Buy
-</button>
-</div></div></section><section class="owned-section"><h2>Your Businesses</h2><div id="ownedBusinesses"><p>No businesses yet.</p></div></section></main><script src="data.js"></script><script src="save.js"></script><script src="script.js"></script></body>
-</html>
+</div><div class="stat-box">
+<h3>Employees</h3>
+<p id="employeeCount">0</p>
+</div><div class="stat-box">
+<h3>Properties</h3>
+<p id="propertyCount">0</p>
+</div></section><section class="news-panel"><h2>Empire News</h2><div id="newsFeed">
+Your empire is just getting started...
+</div></section></main></div><script src="data.js"></script><script src="ui.js"></script><script src="script.js"></script></body>
+</html>>
